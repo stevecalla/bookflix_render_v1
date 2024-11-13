@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { validateEmail, validatePassword } from '../utils/validation';
 
 const Register: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -12,15 +11,6 @@ const Register: React.FC = () => {
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateEmail(email)) {
-      setError('Invalid email format');
-      return;
-    }
-    if (!validatePassword(password)) {
-      setError('Password must be at least 6 characters');
-      return;
-    }
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
