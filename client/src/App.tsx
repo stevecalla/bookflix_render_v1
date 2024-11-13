@@ -1,16 +1,17 @@
-import { Outlet } from "react-router-dom"
+import React from 'react';
+import Login from './components/login';
+import Register from './components/Register';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Navbar from "./components/Navbar"
+const App: React.FC = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+            </Switch>
+        </Router>
+    );
+};
 
-function App() {
-  return (
-    <>
-      <Navbar />
-        <main>
-          <Outlet />
-        </main>
-    </>
-  )
-}
-
-export default App
+export default App;
