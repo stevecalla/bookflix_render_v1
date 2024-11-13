@@ -1,16 +1,15 @@
-import { Outlet } from "react-router-dom"
-
-import Navbar from "./components/Navbar"
-
-function App() {
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+const App: React.FC = () => {
   return (
     <>
       <Navbar />
-        <main>
-          <Outlet />
-        </main>
+      <main>
+        <Outlet />
+      </main>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
