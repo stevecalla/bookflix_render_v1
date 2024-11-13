@@ -6,8 +6,7 @@ import App from './App.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import Login from './components/Login.tsx';
 import Register from './components/Register.tsx';
-
-
+import ForgotPassword from './components/ForgotPassword.tsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -21,7 +20,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />
-      }      
+      },
+      {
+        path: '/forgot-password',
+        element: <ForgotPassword />
+      }   
     ]
   }
 ]);
