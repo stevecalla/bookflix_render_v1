@@ -24,11 +24,12 @@ interface User {
     return user !== null && user.password === password;
   };
   
+  
   // Find a user by userId or email
-    export const findUserByIdOrEmail = (userIdOrEmail: string): User | null => {
+    export const findUserByEmail = (Email: string): User | null => {
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         return users.find(
-        (user: User) => user.userId === userIdOrEmail || user.email === userIdOrEmail
+        (user: User) => user.email === Email
         ) || null;
     };
 // Update user password
@@ -42,6 +43,5 @@ export const updateUserPassword = (userId: string, newPassword: string) => {
     });
     localStorage.setItem('users', JSON.stringify(updatedUsers));
   };
-  
   // Export the User interface
   export type { User };

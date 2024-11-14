@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { findUserByIdOrEmail, updateUserPassword } from '../utils/storage';
+import { findUserByEmail, updateUserPassword } from '../utils/storage';
 
 const ForgotPassword: React.FC = () => {
   const [userIdOrEmail, setUserIdOrEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);  // Single state for both fields
   const [alert, setAlert] = useState<{ type: string; message: string } | null>(null);
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const ForgotPassword: React.FC = () => {
     e.preventDefault();
 
     // Find user by either userId or email
-    const user = findUserByIdOrEmail(userIdOrEmail);
+    const user = findUserByEmail(userIdOrEmail);
 
     if (user) {
       if (newPassword.length < 6) {
@@ -82,11 +82,6 @@ const ForgotPassword: React.FC = () => {
               onChange={(e) => setNewPassword(e.target.value)}
               required
             />
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              onClick={() => setShowPassword(!showPassword)}
-              className="password-toggle-icon"
-            />
           </div>
         </div>
         <div className="form-group">
@@ -99,12 +94,13 @@ const ForgotPassword: React.FC = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              onClick={() => setShowPassword(!showPassword)}
-              className="password-toggle-icon"
-            />
           </div>
+          {/* Eye icon to toggle visibility for both fields */}
+          <FontAwesomeIcon
+            icon={showPassword ? faEyeSlash : faEye}
+            onClick={() => setShowPassword(!showPassword)}
+            className="password-toggle-icon"
+          />
         </div>
         <button type="submit" className="btn btn-primary">Reset Password</button>
       </form>
