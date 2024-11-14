@@ -1,31 +1,45 @@
 {
-    "compilerOptions": {
-      /* Language and Environment */
-      "target": "ES2020" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-  
-      /* Modules */
-      "module": "ESNext" /* Specify what module code is generated. */,
-      "moduleResolution": "Bundler" /* Specify how TypeScript looks up a file from a given module specifier. */,
-      "skipLibCheck": true,
-  
-      /* JavaScript Support */
-      "allowJs": true /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */,
-      "checkJs": true /* Enable error reporting in type-checked JavaScript files. */,
-  
-      /* Interop Constraints */
-      "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
-      "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
-      "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-  
-      /* Type Checking */
-      "strict": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noFallthroughCasesInSwitch": true,
-      "exactOptionalPropertyTypes": true /* Interpret optional property types as written, rather than adding 'undefined'. */,
-      "noImplicitReturns": true /* Enable error reporting for codepaths that do not explicitly return in a function. */,
-      "noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */,
-      "useUnknownInCatchVariables": true /* Ensure 'unknown' is used for catch clause variables. */
-    }
-  }
-  
+	"compilerOptions": {
+		/* Basic Options */
+		"target": "ES2020", // Set the JavaScript version (ES2020 or later).
+		"module": "ESNext", // Use commonJS module system (good for Node.js).
+		//"lib": ["es6", "dom"], // Include JavaScript standard library + browser DOM.
+		"allowJs": true, // Allow JavaScript files to be compiled.
+		"checkJs": false, // Skip type checking for JavaScript files.
+		"outDir": "./dist", // Output directory for compiled files.
+		"rootDir": "./src", // Root directory for TypeScript source files.
+		"strict": true, // Enable strict type-checking options.
+		"esModuleInterop": true, // Support importing CommonJS modules (like `require`).
+		"resolveJsonModule": true, // Enable importing JSON files.
+		"sourceMap": true, // Generate source maps for easier debugging.
+
+		/* Module Resolution Options */
+		"moduleResolution": "node", // Use Node.js module resolution.
+		"baseUrl": "./", // Base directory for resolving non-relative imports.
+		"paths": {
+			"@/*": ["src/*"] // Set up path aliases for easier imports.
+		},
+
+		/* Type Checking Options */
+		"strictNullChecks": true, // Ensure null/undefined values are handled explicitly.
+		"noImplicitAny": true, // Disallow variables with an implicit `any` type.
+		"noImplicitThis": true, // Disallow `this` being used with an implicit `any`.
+		"alwaysStrict": true, // Emit strict mode for JavaScript (`"use strict"`).
+
+		/* Performance Options */
+		"skipLibCheck": true, // Skip type checking for library declaration files.
+		"incremental": true, // Enable incremental compilation.
+		"noEmitOnError": true, // Avoid emitting files if there are errors.
+
+		/* Linting and Diagnostics */
+		"noUnusedLocals": false, // Warn on unused local variables.
+		"noUnusedParameters": false, // Warn on unused parameters in functions.
+		"noFallthroughCasesInSwitch": true, // Disallow fallthrough cases in switch statements.
+		"noImplicitReturns": true, // Ensure all code paths return a value in functions.
+
+		//"noEmit": true, // Do not emit output files.
+		//"allowImportingTsExtensions": true, // Allow importing TypeScript files with .ts extension.
+	},
+	"include": ["src"], // Specify which files to include in the compilation.
+	"exclude": ["node_modules", "dist"] // Exclude folders to prevent redundant compilation.
+}

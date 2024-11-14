@@ -18,7 +18,13 @@ const Login: React.FC = () => {
     if (userExists) {
       if (validateUser(userId, password)) {
         setAlert({ type: 'success', message: 'Logged in successfully!' });
-        setTimeout(() => setAlert(null), 3000);
+        
+        // Navigate to ChoicePage after a short delay to show the success message
+        setTimeout(() => {
+          setAlert(null);
+          navigate('/choice');
+        }, 1000);
+
       } else {
         setAlert({ type: 'danger', message: 'Incorrect password.' });
       }
