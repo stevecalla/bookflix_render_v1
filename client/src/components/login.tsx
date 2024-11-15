@@ -15,6 +15,8 @@ const Login: React.FC = () => {
     e.preventDefault();
     const userExists = findUserById(userId);
 
+    // do fetch(); // POST: /auth/login {"userId": "user1", "password": "password1"}
+
     if (userExists) {
       if (validateUser(userId, password)) {
         setAlert({ type: 'success', message: 'Logged in successfully!' });

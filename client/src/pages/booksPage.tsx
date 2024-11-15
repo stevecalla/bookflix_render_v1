@@ -7,7 +7,8 @@ const BooksPage: React.FC = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`);
+      //const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`);
+      const response = await fetch(`/api/books?q=${searchTerm}`);
       const data = await response.json();
       setBooks(data.items || []);
     } catch (error) {

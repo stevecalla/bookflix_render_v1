@@ -23,6 +23,10 @@ const Register: React.FC = () => {
       setAlert({ type: 'danger', message: 'Passwords do not match.' });
       return;
     }
+
+
+    // do fetch(); // POST: /api/user/signup {"userId": "user1", "email": "test@test.co ", "password": "password1"}
+
     if (findUserById(userId)) {
       setAlert({ type: 'warning', message: 'User ID already exists.' });
       return;
