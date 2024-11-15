@@ -20,6 +20,14 @@ cd Bookflix
 npm install
 ```
 
+.env example:
+```
+DB_NAME=entrainment_library
+DB_USER=XXXXX
+DB_PASSWORD=XXXXX
+GOOGLE_BOOKS_API_KEY=XXXXX
+```
+
 ## Usage
 
 
