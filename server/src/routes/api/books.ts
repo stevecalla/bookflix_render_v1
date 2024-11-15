@@ -34,4 +34,15 @@ router.get("/", async (_req, res) =>
     });
 });
 
+router.post('/like', async (req, res) =>
+{
+    // req.body.id
+
+    
+
+    console.log(req.body);
+
+    res.send({});
+});
+
 export default router;

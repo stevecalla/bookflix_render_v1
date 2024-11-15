@@ -14,12 +14,10 @@ const router = Router();
 
 router.post("/signup", async (req, res) =>
 {
-
     const { email, userId, password } = req.body;
 
     try {
         const newProfile = req.body;
-        newProfile.password = await bcrypt.hash(req.body.password, 10);
 
         const userData = await User.create({
             email: newProfile.email,
@@ -30,16 +28,6 @@ router.post("/signup", async (req, res) =>
       } catch (err) {
         res.status(400).json(err);
       }
-
-
-
-    // res.send({
-    //     email: email,
-    //     password: password,
-    //     userId: userId,
-    // });
-
-
 });
 
 
