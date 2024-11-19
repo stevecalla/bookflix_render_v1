@@ -9,7 +9,13 @@ const BooksPage: React.FC = () => {
     try {
       //const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`);
       const response = await fetch(`/api/books?q=${searchTerm}`);
+
+      console.log('books api response:', response);
+
       const data = await response.json();
+
+      console.log('books api data:', data);
+      
       setBooks(data.items || []);
     } catch (error) {
       console.error('Error fetching books:', error);

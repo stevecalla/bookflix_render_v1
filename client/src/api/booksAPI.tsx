@@ -3,6 +3,7 @@ import {ApiMessage} from '../interfaces/ApiMessage';
 const url = '/api/books';
 
 export const getBooks = async (): Promise<ApiMessage> => {
+  console.log('Fetching books...');
   try {
     const response = await fetch(url);
     const data = await response.json();
